@@ -1,0 +1,35 @@
+import math
+
+def centros_al_cuadrado(semilla, n):
+
+  numeros = []
+  for _ in range(n):
+    cuadrado = semilla**2
+    digitos = len(str(semilla))
+    centro = math.ceil(digitos / 2)
+    nuevo_numero = int(str(cuadrado)[centro - 1: centro + 1])
+    numeros.append(nuevo_numero)
+    semilla = nuevo_numero
+  return numeros
+
+def medios_cuadrados(semilla, n):
+
+  numeros = []
+  for _ in range(n):
+    cuadrado = semilla**2
+    digitos = len(str(semilla))
+    medio = digitos // 2
+    nuevo_numero = int(str(cuadrado)[medio - 1: medio + 1])
+    numeros.append(nuevo_numero)
+    semilla = nuevo_numero
+  return numeros
+
+# Ejemplo de uso
+semilla = 1234
+cantidad_numeros = 100
+
+numeros_centros = centros_al_cuadrado(semilla, cantidad_numeros)
+numeros_medios = medios_cuadrados(semilla, cantidad_numeros)
+
+print("Números aleatorios por centros al cuadrado:", numeros_centros)
+print("Números aleatorios por medios cuadrados:", numeros_medios)
