@@ -1,0 +1,71 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/miguelibarra111/probabilidad/blob/main/simulacion%20t2%20unidad%202\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "from scipy import stats\n",
+        "\n",
+        "# Generar 100 números aleatorios entre 0 y 1 (distribución uniforme)\n",
+        "datos = np.random.uniform(0, 1, 100)\n",
+        "\n",
+        "# Realizar la prueba de Kolmogorov-Smirnov\n",
+        "k, p = stats.kstest(datos, 'uniform')\n",
+        "\n",
+        "# Imprimir los resultados\n",
+        "print(\"Estadístico de prueba de Kolmogorov-Smirnov:\", k)\n",
+        "print(\"p-valor:\", p)\n",
+        "\n",
+        "# Interpretar los resultados\n",
+        "alpha = 0.05  # Nivel de significancia\n",
+        "if p > alpha:\n",
+        "    print(\"Los datos no rechazan la hipótesis nula de que provienen de una distribución uniforme.\")\n",
+        "else:\n",
+        "    print(\"Los datos rechazan la hipótesis nula de que provienen de una distribución uniforme.\")"
+      ],
+      "metadata": {
+        "id": "vv9qLVO0i-5O",
+        "outputId": "7dd876d0-343a-499c-bfe9-4e89ded35f41",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Estadístico de prueba de Kolmogorov-Smirnov: 0.12495613055902327\n",
+            "p-valor: 0.08068034442799177\n",
+            "Los datos no rechazan la hipótesis nula de que provienen de una distribución uniforme.\n"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Welcome To Colab",
+      "toc_visible": true,
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
